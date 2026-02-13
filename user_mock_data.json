@@ -1,0 +1,1036 @@
+{
+  "_meta": {
+    "aciklama": "Akbank kullanıcısı tüm rızaları (01-09) verdikten sonra BKM üzerinden Denizkartım uygulamasına ulaşacak veri formatı",
+    "hhs": "Akbank (HHS Kodu: 0046)",
+    "yos": "Denizbank - Denizkartım (YÖS Kodu: 0134)",
+    "izinTurleri": ["01", "02", "03", "04", "05", "06", "07", "08", "09"],
+    "rizaOlusTrh": "2026-04-15T10:30:00+03:00",
+    "erisimIzniSonTrh": "2026-10-15T23:59:59+03:00",
+    "ohkTip": "B"
+  },
+
+  "hesaplar": [
+    {
+      "hspRef": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "hspNo": "TR330006200012300006789012",
+      "hspShb": "MERT YILMAZ",
+      "subeAdi": "Levent Şubesi",
+      "kisaAd": "Maaş Hesabım",
+      "prBrm": "TRY",
+      "hspTur": "B",
+      "hspTip": "VADESIZ",
+      "hspUrunAdi": "Axess Vadesiz Hesap",
+      "hspDrm": "ACIK",
+      "hspAclsTrh": "2019-03-12T00:00:00+03:00"
+    },
+    {
+      "hspRef": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+      "hspNo": "TR440006200012300006789034",
+      "hspShb": "MERT YILMAZ",
+      "subeAdi": "Levent Şubesi",
+      "kisaAd": "Döviz Hesabım",
+      "prBrm": "USD",
+      "hspTur": "B",
+      "hspTip": "VADESIZ",
+      "hspUrunAdi": "Döviz Vadesiz Hesap",
+      "hspDrm": "ACIK",
+      "hspAclsTrh": "2021-06-20T00:00:00+03:00"
+    },
+    {
+      "hspRef": "c3d4e5f6-a7b8-9012-cdef-123456789012",
+      "hspNo": "TR550006200012300006789056",
+      "hspShb": "MERT YILMAZ",
+      "subeAdi": "Levent Şubesi",
+      "kisaAd": null,
+      "prBrm": "TRY",
+      "hspTur": "B",
+      "hspTip": "KREDILI",
+      "hspUrunAdi": "KMH Vadesiz Hesap",
+      "hspDrm": "ACIK",
+      "hspAclsTrh": "2019-03-12T00:00:00+03:00"
+    }
+  ],
+
+  "bakiyeler": [
+    {
+      "hspRef": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "bkyTtr": "47832.56",
+      "blkTtr": "2500.00",
+      "prBrm": "TRY",
+      "bkyZmn": "2026-04-15T10:35:22+03:00",
+      "krdHsp": null
+    },
+    {
+      "hspRef": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+      "bkyTtr": "1245.80",
+      "blkTtr": null,
+      "prBrm": "USD",
+      "bkyZmn": "2026-04-15T10:35:22+03:00",
+      "krdHsp": null
+    },
+    {
+      "hspRef": "c3d4e5f6-a7b8-9012-cdef-123456789012",
+      "bkyTtr": "-3200.00",
+      "blkTtr": null,
+      "prBrm": "TRY",
+      "bkyZmn": "2026-04-15T10:35:22+03:00",
+      "krdHsp": {
+        "kulKrdTtr": "3200.00",
+        "krdDhlGstr": "0"
+      }
+    }
+  ],
+
+  "hesapIslemleri": {
+    "a1b2c3d4-e5f6-7890-abcd-ef1234567890": [
+      {
+        "islNo": "AKB2026041500001",
+        "refNo": "E2E-2026041510302145678",
+        "islTtr": "42500.00",
+        "gnclBky": "67832.56",
+        "prBrm": "TRY",
+        "islGrckZaman": "2026-04-01T09:02:15+03:00",
+        "kanal": "O",
+        "brcAlc": "A",
+        "islTur": "HAVALE",
+        "islAmc": "01",
+        "odmStmNo": null,
+        "islAcklm": "NISAN 2026 MAAS ODEMESI",
+        "krsTrf": {
+          "krsMskIBAN": "TR12****************************3456",
+          "krsUnvan": "YILMAZ TEKNOLOJI A.S.",
+          "krsKimlikVrs": null
+        }
+      },
+      {
+        "islNo": "AKB2026041500002",
+        "refNo": "E2E-2026040214051234567",
+        "islTtr": "8750.00",
+        "gnclBky": "59082.56",
+        "prBrm": "TRY",
+        "islGrckZaman": "2026-04-02T14:05:33+03:00",
+        "kanal": "O",
+        "brcAlc": "B",
+        "islTur": "EFT",
+        "islAmc": "03",
+        "odmStmNo": "FAST20260402140512345",
+        "islAcklm": "NISAN 2026 KIRA ODEMESI",
+        "krsTrf": {
+          "krsMskIBAN": "TR98****************************7890",
+          "krsUnvan": "AYSE DEMIR",
+          "krsKimlikVrs": null
+        }
+      },
+      {
+        "islNo": "AKB2026041500003",
+        "refNo": "E2E-2026040309221098765",
+        "islTtr": "4200.00",
+        "gnclBky": "54882.56",
+        "prBrm": "TRY",
+        "islGrckZaman": "2026-04-03T09:22:10+03:00",
+        "kanal": "O",
+        "brcAlc": "B",
+        "islTur": "HAVALE",
+        "islAmc": "02",
+        "odmStmNo": null,
+        "islAcklm": "AKBANK KREDI KARTI ODEME - AXESS",
+        "krsTrf": {
+          "krsMskIBAN": "TR65****************************1234",
+          "krsUnvan": "AKBANK T.A.S.",
+          "krsKimlikVrs": null
+        }
+      },
+      {
+        "islNo": "AKB2026041500004",
+        "refNo": "E2E-2026040518150987654",
+        "islTtr": "1850.00",
+        "gnclBky": "53032.56",
+        "prBrm": "TRY",
+        "islGrckZaman": "2026-04-05T18:15:44+03:00",
+        "kanal": "O",
+        "brcAlc": "B",
+        "islTur": "FAST",
+        "islAmc": "01",
+        "odmStmNo": "FAST20260405181544321",
+        "islAcklm": "ARKADASA TRANSFER",
+        "krsTrf": {
+          "krsMskIBAN": "TR77****************************5678",
+          "krsUnvan": "AHMET KAYA",
+          "krsKimlikVrs": null
+        }
+      },
+      {
+        "islNo": "AKB2026041500005",
+        "refNo": "E2E-2026040710081122334",
+        "islTtr": "960.00",
+        "gnclBky": "52072.56",
+        "prBrm": "TRY",
+        "islGrckZaman": "2026-04-07T10:08:55+03:00",
+        "kanal": "O",
+        "brcAlc": "B",
+        "islTur": "HAVALE",
+        "islAmc": "06",
+        "odmStmNo": null,
+        "islAcklm": "OTOMATIK ODEME - IGDAS DOGALGAZ",
+        "krsTrf": {
+          "krsMskIBAN": "TR41****************************9012",
+          "krsUnvan": "IGDAS ISTANBUL GAZ DAGITIM",
+          "krsKimlikVrs": null
+        }
+      },
+      {
+        "islNo": "AKB2026041500006",
+        "refNo": "E2E-2026040810301234321",
+        "islTtr": "385.50",
+        "gnclBky": "51687.06",
+        "prBrm": "TRY",
+        "islGrckZaman": "2026-04-08T10:30:00+03:00",
+        "kanal": "O",
+        "brcAlc": "B",
+        "islTur": "HAVALE",
+        "islAmc": "06",
+        "odmStmNo": null,
+        "islAcklm": "OTOMATIK ODEME - TURK TELEKOM",
+        "krsTrf": {
+          "krsMskIBAN": "TR22****************************3456",
+          "krsUnvan": "TURK TELEKOM A.S.",
+          "krsKimlikVrs": null
+        }
+      },
+      {
+        "islNo": "AKB2026041500007",
+        "refNo": "E2E-2026041008451234567",
+        "islTtr": "1355.50",
+        "gnclBky": "50331.56",
+        "prBrm": "TRY",
+        "islGrckZaman": "2026-04-10T08:45:00+03:00",
+        "kanal": "O",
+        "brcAlc": "B",
+        "islTur": "HAVALE",
+        "islAmc": "06",
+        "odmStmNo": null,
+        "islAcklm": "OTOMATIK ODEME - ISKI SU FATURASI",
+        "krsTrf": {
+          "krsMskIBAN": "TR88****************************7890",
+          "krsUnvan": "ISKI GENEL MUDURLUGU",
+          "krsKimlikVrs": null
+        }
+      },
+      {
+        "islNo": "AKB2026041500008",
+        "refNo": "E2E-2026041214301234567",
+        "islTtr": "2500.00",
+        "gnclBky": "47832.56",
+        "prBrm": "TRY",
+        "islGrckZaman": "2026-04-12T14:30:00+03:00",
+        "kanal": "A",
+        "brcAlc": "B",
+        "islTur": "HAVALE",
+        "islAmc": "01",
+        "odmStmNo": null,
+        "islAcklm": "ATM PARA CEKME - LEVENT",
+        "krsTrf": null
+      }
+    ],
+    "b2c3d4e5-f6a7-8901-bcde-f12345678901": [
+      {
+        "islNo": "AKB2026041500020",
+        "refNo": "E2E-2026032514001234567",
+        "islTtr": "500.00",
+        "gnclBky": "1245.80",
+        "prBrm": "USD",
+        "islGrckZaman": "2026-03-25T14:00:00+03:00",
+        "kanal": "O",
+        "brcAlc": "A",
+        "islTur": "HAVALE",
+        "islAmc": "01",
+        "odmStmNo": null,
+        "islAcklm": "FREELANCE ODEME - UPWORK",
+        "krsTrf": {
+          "krsMskIBAN": null,
+          "krsUnvan": "UPWORK GLOBAL INC.",
+          "krsKimlikVrs": null
+        }
+      }
+    ]
+  },
+
+  "kartlar": [
+    {
+      "kartRef": "k1a2b3c4-d5e6-7890-abcd-ef1234567001",
+      "kartNo": "465895******4532",
+      "asilKartNo": null,
+      "kartTipi": "K",
+      "altKartTipi": "A",
+      "kartFormu": "F",
+      "kartTuru": "B",
+      "kartStatu": "ACIK",
+      "kartSema": "VISA",
+      "kartUrunAdi": "Axess Platinum",
+      "ekstreTurleri": [
+        { "ekstreTuru": "TRY", "ekstreStatu": "A" },
+        { "ekstreTuru": "USD", "ekstreStatu": "A" },
+        { "ekstreTuru": "EUR", "ekstreStatu": "A" }
+      ]
+    },
+    {
+      "kartRef": "k2b3c4d5-e6f7-8901-bcde-f12345678002",
+      "kartNo": "540667******8921",
+      "asilKartNo": null,
+      "kartTipi": "K",
+      "altKartTipi": "A",
+      "kartFormu": "F",
+      "kartTuru": "B",
+      "kartStatu": "ACIK",
+      "kartSema": "MC",
+      "kartUrunAdi": "Wings Mastercard",
+      "ekstreTurleri": [
+        { "ekstreTuru": "TRY", "ekstreStatu": "A" },
+        { "ekstreTuru": "EUR", "ekstreStatu": "P" }
+      ]
+    },
+    {
+      "kartRef": "k3c4d5e6-f7a8-9012-cdef-123456789003",
+      "kartNo": "465895******7710",
+      "asilKartNo": "465895******4532",
+      "kartTipi": "K",
+      "altKartTipi": "S",
+      "kartFormu": "D",
+      "kartTuru": "B",
+      "kartStatu": "ACIK",
+      "kartSema": "VISA",
+      "kartUrunAdi": "Axess Sanal Kart",
+      "ekstreTurleri": [
+        { "ekstreTuru": "TRY", "ekstreStatu": "A" }
+      ]
+    },
+    {
+      "kartRef": "k4d5e6f7-a8b9-0123-defa-234567890004",
+      "kartNo": "979203******3345",
+      "asilKartNo": null,
+      "kartTipi": "B",
+      "altKartTipi": "A",
+      "kartFormu": "F",
+      "kartTuru": "B",
+      "kartStatu": "ACIK",
+      "kartSema": "TROY",
+      "kartUrunAdi": "Akbank Banka Kartı",
+      "ekstreTurleri": []
+    }
+  ],
+
+  "kartDetaylari": {
+    "k1a2b3c4-d5e6-7890-abcd-ef1234567001": {
+      "TRY": {
+        "toplamLimit": "120000.00",
+        "kullanilabilirLimit": "74250.35",
+        "donemIciHareketToplami": "-38420.65",
+        "ekstreBorcu": "-28750.00",
+        "kalanEkstreBorcu": "-24550.00",
+        "asgariOdemeTutari": "-8625.00",
+        "kalanAsgariOdemeTutari": "-4425.00",
+        "hesapKesimTarihi": "2026-04-01T00:00:00+03:00",
+        "sonOdemeTarihi": "2026-04-22T23:59:59+03:00",
+        "nakitCekimLimiti": "24000.00",
+        "kalanNakitCekimLimiti": "24000.00",
+        "prBrm": "TRY",
+        "puanBilgisi": [
+          {
+            "puanDegeri": "12840",
+            "puanTipi": "Axess Puan"
+          },
+          {
+            "puanDegeri": "3200",
+            "puanTipi": "Chip Para"
+          }
+        ],
+        "kalanToplamTaksitTutari": "-45600.00",
+        "donemTaksitTutarBilgisi": [
+          { "donem": 0, "taksitTutari": "-4800.00" },
+          { "donem": 1, "taksitTutari": "-4800.00" },
+          { "donem": 2, "taksitTutari": "-4200.00" },
+          { "donem": 3, "taksitTutari": "-3600.00" },
+          { "donem": 4, "taksitTutari": "-3600.00" },
+          { "donem": 5, "taksitTutari": "-3600.00" },
+          { "donem": 6, "taksitTutari": "-3600.00" },
+          { "donem": 7, "taksitTutari": "-3600.00" },
+          { "donem": 8, "taksitTutari": "-3600.00" },
+          { "donem": 9, "taksitTutari": "-3600.00" },
+          { "donem": 10, "taksitTutari": "-3600.00" },
+          { "donem": 11, "taksitTutari": "-3000.00" },
+          { "donem": 12, "taksitTutari": "-3000.00" }
+        ]
+      },
+      "USD": {
+        "toplamLimit": "3000.00",
+        "kullanilabilirLimit": "2856.12",
+        "donemIciHareketToplami": "-143.88",
+        "ekstreBorcu": "0.00",
+        "kalanEkstreBorcu": "0.00",
+        "asgariOdemeTutari": "0.00",
+        "kalanAsgariOdemeTutari": "0.00",
+        "hesapKesimTarihi": "2026-04-01T00:00:00+03:00",
+        "sonOdemeTarihi": "2026-04-22T23:59:59+03:00",
+        "nakitCekimLimiti": "500.00",
+        "kalanNakitCekimLimiti": "500.00",
+        "prBrm": "USD",
+        "puanBilgisi": [],
+        "kalanToplamTaksitTutari": "0.00",
+        "donemTaksitTutarBilgisi": []
+      }
+    },
+    "k2b3c4d5-e6f7-8901-bcde-f12345678002": {
+      "TRY": {
+        "toplamLimit": "80000.00",
+        "kullanilabilirLimit": "58320.00",
+        "donemIciHareketToplami": "-15430.00",
+        "ekstreBorcu": "-18250.00",
+        "kalanEkstreBorcu": "-18250.00",
+        "asgariOdemeTutari": "-5475.00",
+        "kalanAsgariOdemeTutari": "-5475.00",
+        "hesapKesimTarihi": "2026-03-28T00:00:00+03:00",
+        "sonOdemeTarihi": "2026-04-18T23:59:59+03:00",
+        "nakitCekimLimiti": "16000.00",
+        "kalanNakitCekimLimiti": "16000.00",
+        "prBrm": "TRY",
+        "puanBilgisi": [
+          {
+            "puanDegeri": "45200",
+            "puanTipi": "Wings Mil"
+          }
+        ],
+        "kalanToplamTaksitTutari": "-12000.00",
+        "donemTaksitTutarBilgisi": [
+          { "donem": 0, "taksitTutari": "-2000.00" },
+          { "donem": 1, "taksitTutari": "-2000.00" },
+          { "donem": 2, "taksitTutari": "-2000.00" },
+          { "donem": 3, "taksitTutari": "-2000.00" },
+          { "donem": 4, "taksitTutari": "-2000.00" },
+          { "donem": 5, "taksitTutari": "-2000.00" }
+        ]
+      }
+    },
+    "k3c4d5e6-f7a8-9012-cdef-123456789003": {
+      "TRY": {
+        "toplamLimit": "120000.00",
+        "kullanilabilirLimit": "74250.35",
+        "donemIciHareketToplami": "-7329.00",
+        "ekstreBorcu": "0.00",
+        "kalanEkstreBorcu": "0.00",
+        "asgariOdemeTutari": "0.00",
+        "kalanAsgariOdemeTutari": "0.00",
+        "hesapKesimTarihi": "2026-04-01T00:00:00+03:00",
+        "sonOdemeTarihi": "2026-04-22T23:59:59+03:00",
+        "nakitCekimLimiti": "0.00",
+        "kalanNakitCekimLimiti": "0.00",
+        "prBrm": "TRY",
+        "puanBilgisi": [],
+        "kalanToplamTaksitTutari": "0.00",
+        "donemTaksitTutarBilgisi": []
+      }
+    }
+  },
+
+  "kartHareketleri": {
+    "k1a2b3c4-d5e6-7890-abcd-ef1234567001": {
+      "TRY": {
+        "donem": 0,
+        "hareketBilgileri": [
+          {
+            "islemNo": "KH2026040100001",
+            "islemTutari": { "ttr": "-279.00", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-02T20:15:30+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "NETFLIX",
+            "islemPuanBilgileri": [
+              { "islemPuani": "56", "islemPuanBirimi": "Axess Puan", "islemPuanDurumu": "01" }
+            ],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "4899"
+          },
+          {
+            "islemNo": "KH2026040100002",
+            "islemTutari": { "ttr": "-59.99", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-02T20:15:45+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "SPOTIFY AB",
+            "islemPuanBilgileri": [
+              { "islemPuani": "12", "islemPuanBirimi": "Axess Puan", "islemPuanDurumu": "01" }
+            ],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5815"
+          },
+          {
+            "islemNo": "KH2026040100003",
+            "islemTutari": { "ttr": "-149.99", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-03T00:01:12+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "YOUTUBE PREMIUM",
+            "islemPuanBilgileri": [
+              { "islemPuani": "30", "islemPuanBirimi": "Axess Puan", "islemPuanDurumu": "01" }
+            ],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "4899"
+          },
+          {
+            "islemNo": "KH2026040100004",
+            "islemTutari": { "ttr": "-2450.00", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-03T13:22:45+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "MIGROS SANAL MARKET",
+            "islemPuanBilgileri": [
+              { "islemPuani": "490", "islemPuanBirimi": "Axess Puan", "islemPuanDurumu": "01" }
+            ],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5411"
+          },
+          {
+            "islemNo": "KH2026040100005",
+            "islemTutari": { "ttr": "-18500.00", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-04T15:40:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "TEKNOSA MAGAZACILIK A.S.",
+            "islemPuanBilgileri": [
+              { "islemPuani": "1850", "islemPuanBirimi": "Axess Puan", "islemPuanDurumu": "01" },
+              { "islemPuani": "925", "islemPuanBirimi": "Chip Para", "islemPuanDurumu": "01" }
+            ],
+            "toplamTaksitTutari": { "ttr": "-18500.00", "prBrm": "TRY" },
+            "toplamTaksitSayisi": 6,
+            "taksitDonemi": 1,
+            "saticiKategoriKodu": "5732"
+          },
+          {
+            "islemNo": "KH2026040100006",
+            "islemTutari": { "ttr": "-3750.00", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-05T19:10:22+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "ZARA ISTANBUL ISTINYE",
+            "islemPuanBilgileri": [
+              { "islemPuani": "375", "islemPuanBirimi": "Axess Puan", "islemPuanDurumu": "01" }
+            ],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5651"
+          },
+          {
+            "islemNo": "KH2026040100007",
+            "islemTutari": { "ttr": "-890.00", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-06T12:30:15+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "SHELL LEVENT ISTASYON",
+            "islemPuanBilgileri": [
+              { "islemPuani": "89", "islemPuanBirimi": "Axess Puan", "islemPuanDurumu": "01" }
+            ],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5541"
+          },
+          {
+            "islemNo": "KH2026040100008",
+            "islemTutari": { "ttr": "-420.00", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-07T20:45:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "YEMEKSEPETI",
+            "islemPuanBilgileri": [
+              { "islemPuani": "42", "islemPuanBirimi": "Axess Puan", "islemPuanDurumu": "01" }
+            ],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5812"
+          },
+          {
+            "islemNo": "KH2026040100009",
+            "islemTutari": { "ttr": "-1250.00", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-08T14:20:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "WATSONS LEVENT",
+            "islemPuanBilgileri": [
+              { "islemPuani": "125", "islemPuanBirimi": "Axess Puan", "islemPuanDurumu": "01" }
+            ],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5912"
+          },
+          {
+            "islemNo": "KH2026040100010",
+            "islemTutari": { "ttr": "-340.00", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-09T08:30:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "STARBUCKS KANYON AVM",
+            "islemPuanBilgileri": [
+              { "islemPuani": "34", "islemPuanBirimi": "Axess Puan", "islemPuanDurumu": "01" }
+            ],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5814"
+          },
+          {
+            "islemNo": "KH2026040100011",
+            "islemTutari": { "ttr": "-6500.00", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-10T16:00:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "D&R KULTUR SANAT",
+            "islemPuanBilgileri": [
+              { "islemPuani": "650", "islemPuanBirimi": "Axess Puan", "islemPuanDurumu": "01" }
+            ],
+            "toplamTaksitTutari": { "ttr": "-6500.00", "prBrm": "TRY" },
+            "toplamTaksitSayisi": 3,
+            "taksitDonemi": 1,
+            "saticiKategoriKodu": "5942"
+          },
+          {
+            "islemNo": "KH2026040100012",
+            "islemTutari": { "ttr": "-199.00", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-11T00:05:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "APPLE.COM/BILL",
+            "islemPuanBilgileri": [
+              { "islemPuani": "20", "islemPuanBirimi": "Axess Puan", "islemPuanDurumu": "01" }
+            ],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5735"
+          },
+          {
+            "islemNo": "KH2026040100013",
+            "islemTutari": { "ttr": "-2150.00", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-12T21:00:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "BILETIX ONLINE",
+            "islemPuanBilgileri": [
+              { "islemPuani": "215", "islemPuanBirimi": "Axess Puan", "islemPuanDurumu": "01" }
+            ],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "7922"
+          },
+          {
+            "islemNo": "KH2026040100014",
+            "islemTutari": { "ttr": "4200.00", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-03T10:00:00+03:00",
+            "borcAlacak": "A",
+            "islemAciklamasi": "KREDI KARTI ODEMESI - HAVALE",
+            "islemPuanBilgileri": [],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": null
+          },
+          {
+            "islemNo": "KH2026040100015",
+            "islemTutari": { "ttr": "-1482.67", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-13T11:45:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "CARREFOURSA LEVENT AVM",
+            "islemPuanBilgileri": [
+              { "islemPuani": "148", "islemPuanBirimi": "Axess Puan", "islemPuanDurumu": "01" }
+            ],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5411"
+          }
+        ]
+      },
+      "USD": {
+        "donem": 0,
+        "hareketBilgileri": [
+          {
+            "islemNo": "KH2026040100050",
+            "islemTutari": { "ttr": "-49.99", "prBrm": "USD" },
+            "orijinalIslemTutari": { "ttr": "-49.99", "prBrm": "USD" },
+            "islemTarihi": "2026-04-05T03:00:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "CHATGPT SUBSCRIPTION",
+            "islemPuanBilgileri": [],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5734"
+          },
+          {
+            "islemNo": "KH2026040100051",
+            "islemTutari": { "ttr": "-12.99", "prBrm": "USD" },
+            "orijinalIslemTutari": { "ttr": "-12.99", "prBrm": "USD" },
+            "islemTarihi": "2026-04-06T03:00:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "GITHUB INC",
+            "islemPuanBilgileri": [],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5734"
+          },
+          {
+            "islemNo": "KH2026040100052",
+            "islemTutari": { "ttr": "-22.00", "prBrm": "USD" },
+            "orijinalIslemTutari": { "ttr": "-22.00", "prBrm": "USD" },
+            "islemTarihi": "2026-04-07T03:00:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "MIDJOURNEY INC",
+            "islemPuanBilgileri": [],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5734"
+          },
+          {
+            "islemNo": "KH2026040100053",
+            "islemTutari": { "ttr": "-58.90", "prBrm": "USD" },
+            "orijinalIslemTutari": { "ttr": "-58.90", "prBrm": "USD" },
+            "islemTarihi": "2026-04-10T18:30:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "AMAZON.COM",
+            "islemPuanBilgileri": [],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5942"
+          }
+        ]
+      }
+    },
+    "k2b3c4d5-e6f7-8901-bcde-f12345678002": {
+      "TRY": {
+        "donem": 0,
+        "hareketBilgileri": [
+          {
+            "islemNo": "KH2026040200001",
+            "islemTutari": { "ttr": "-8900.00", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-03-30T14:20:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "THY BILET SATIS",
+            "islemPuanBilgileri": [
+              { "islemPuani": "8900", "islemPuanBirimi": "Wings Mil", "islemPuanDurumu": "01" }
+            ],
+            "toplamTaksitTutari": { "ttr": "-8900.00", "prBrm": "TRY" },
+            "toplamTaksitSayisi": 4,
+            "taksitDonemi": 1,
+            "saticiKategoriKodu": "3000"
+          },
+          {
+            "islemNo": "KH2026040200002",
+            "islemTutari": { "ttr": "-1250.00", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-01T12:00:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "BP PETROL MASLAK",
+            "islemPuanBilgileri": [
+              { "islemPuani": "1250", "islemPuanBirimi": "Wings Mil", "islemPuanDurumu": "01" }
+            ],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5541"
+          },
+          {
+            "islemNo": "KH2026040200003",
+            "islemTutari": { "ttr": "-3200.00", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-03T19:30:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "NUSR-ET BURGER ETILER",
+            "islemPuanBilgileri": [
+              { "islemPuani": "3200", "islemPuanBirimi": "Wings Mil", "islemPuanDurumu": "01" }
+            ],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5812"
+          },
+          {
+            "islemNo": "KH2026040200004",
+            "islemTutari": { "ttr": "-780.00", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-05T09:00:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "GETIR TEKNOLOJI A.S.",
+            "islemPuanBilgileri": [
+              { "islemPuani": "780", "islemPuanBirimi": "Wings Mil", "islemPuanDurumu": "01" }
+            ],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5411"
+          },
+          {
+            "islemNo": "KH2026040200005",
+            "islemTutari": { "ttr": "-1300.00", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-08T17:15:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "DECATHLON ISTANBUL",
+            "islemPuanBilgileri": [
+              { "islemPuani": "1300", "islemPuanBirimi": "Wings Mil", "islemPuanDurumu": "01" }
+            ],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5941"
+          },
+          {
+            "islemNo": "KH2026040200006",
+            "islemTutari": { "ttr": "-15000.00", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-10T10:00:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "-5000.00 MIL KULLANIMI",
+            "islemPuanBilgileri": [
+              { "islemPuani": "-5000", "islemPuanBirimi": "Wings Mil", "islemPuanDurumu": "02" }
+            ],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": null
+          }
+        ]
+      }
+    },
+    "k3c4d5e6-f7a8-9012-cdef-123456789003": {
+      "TRY": {
+        "donem": 0,
+        "hareketBilgileri": [
+          {
+            "islemNo": "KH2026040300001",
+            "islemTutari": { "ttr": "-79.99", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-01T00:01:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "ICLOUD STORAGE",
+            "islemPuanBilgileri": [],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5734"
+          },
+          {
+            "islemNo": "KH2026040300002",
+            "islemTutari": { "ttr": "-129.99", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-01T00:02:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "GOOGLE ONE STORAGE",
+            "islemPuanBilgileri": [],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5734"
+          },
+          {
+            "islemNo": "KH2026040300003",
+            "islemTutari": { "ttr": "-49.99", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-02T00:01:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "AMAZON PRIME TR",
+            "islemPuanBilgileri": [],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5968"
+          },
+          {
+            "islemNo": "KH2026040300004",
+            "islemTutari": { "ttr": "-189.99", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-05T00:01:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "ADOBE CREATIVE CLOUD",
+            "islemPuanBilgileri": [],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5734"
+          },
+          {
+            "islemNo": "KH2026040300005",
+            "islemTutari": { "ttr": "-34.99", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-05T00:02:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "DUOLINGO PLUS",
+            "islemPuanBilgileri": [],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5818"
+          },
+          {
+            "islemNo": "KH2026040300006",
+            "islemTutari": { "ttr": "-6785.05", "prBrm": "TRY" },
+            "orijinalIslemTutari": null,
+            "islemTarihi": "2026-04-08T14:30:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "TRENDYOL.COM",
+            "islemPuanBilgileri": [],
+            "toplamTaksitTutari": null,
+            "toplamTaksitSayisi": null,
+            "taksitDonemi": null,
+            "saticiKategoriKodu": "5311"
+          }
+        ]
+      }
+    }
+  },
+
+  "oncekiDonemOrnekleri": {
+    "_aciklama": "Abonelik analizi ve harcama trendi için önceki dönem verileri (donem=-1 ve -2 ile sorgulanır)",
+    "k1a2b3c4-d5e6-7890-abcd-ef1234567001": {
+      "TRY": {
+        "donem": -1,
+        "hareketBilgileri": [
+          {
+            "islemNo": "KH2026030100001",
+            "islemTutari": { "ttr": "-279.00", "prBrm": "TRY" },
+            "islemTarihi": "2026-03-02T20:15:30+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "NETFLIX",
+            "saticiKategoriKodu": "4899"
+          },
+          {
+            "islemNo": "KH2026030100002",
+            "islemTutari": { "ttr": "-59.99", "prBrm": "TRY" },
+            "islemTarihi": "2026-03-02T20:16:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "SPOTIFY AB",
+            "saticiKategoriKodu": "5815"
+          },
+          {
+            "islemNo": "KH2026030100003",
+            "islemTutari": { "ttr": "-149.99", "prBrm": "TRY" },
+            "islemTarihi": "2026-03-03T00:01:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "YOUTUBE PREMIUM",
+            "saticiKategoriKodu": "4899"
+          },
+          {
+            "islemNo": "KH2026030100004",
+            "islemTutari": { "ttr": "-199.00", "prBrm": "TRY" },
+            "islemTarihi": "2026-03-11T00:05:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "APPLE.COM/BILL",
+            "saticiKategoriKodu": "5735"
+          },
+          {
+            "islemNo": "KH2026030100005",
+            "islemTutari": { "ttr": "-3083.33", "prBrm": "TRY" },
+            "islemTarihi": "2026-03-04T15:40:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "TEKNOSA MAGAZACILIK A.S.",
+            "toplamTaksitTutari": { "ttr": "-18500.00", "prBrm": "TRY" },
+            "toplamTaksitSayisi": 6,
+            "taksitDonemi": 2,
+            "saticiKategoriKodu": "5732"
+          }
+        ]
+      },
+      "USD": {
+        "donem": -1,
+        "hareketBilgileri": [
+          {
+            "islemNo": "KH2026030100050",
+            "islemTutari": { "ttr": "-49.99", "prBrm": "USD" },
+            "islemTarihi": "2026-03-05T03:00:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "CHATGPT SUBSCRIPTION",
+            "saticiKategoriKodu": "5734"
+          },
+          {
+            "islemNo": "KH2026030100051",
+            "islemTutari": { "ttr": "-12.99", "prBrm": "USD" },
+            "islemTarihi": "2026-03-06T03:00:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "GITHUB INC",
+            "saticiKategoriKodu": "5734"
+          },
+          {
+            "islemNo": "KH2026030100052",
+            "islemTutari": { "ttr": "-22.00", "prBrm": "USD" },
+            "islemTarihi": "2026-03-07T03:00:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "MIDJOURNEY INC",
+            "saticiKategoriKodu": "5734"
+          }
+        ]
+      }
+    },
+    "k3c4d5e6-f7a8-9012-cdef-123456789003": {
+      "TRY": {
+        "donem": -1,
+        "hareketBilgileri": [
+          {
+            "islemNo": "KH2026030300001",
+            "islemTutari": { "ttr": "-79.99", "prBrm": "TRY" },
+            "islemTarihi": "2026-03-01T00:01:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "ICLOUD STORAGE",
+            "saticiKategoriKodu": "5734"
+          },
+          {
+            "islemNo": "KH2026030300002",
+            "islemTutari": { "ttr": "-129.99", "prBrm": "TRY" },
+            "islemTarihi": "2026-03-01T00:02:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "GOOGLE ONE STORAGE",
+            "saticiKategoriKodu": "5734"
+          },
+          {
+            "islemNo": "KH2026030300003",
+            "islemTutari": { "ttr": "-49.99", "prBrm": "TRY" },
+            "islemTarihi": "2026-03-02T00:01:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "AMAZON PRIME TR",
+            "saticiKategoriKodu": "5968"
+          },
+          {
+            "islemNo": "KH2026030300004",
+            "islemTutari": { "ttr": "-189.99", "prBrm": "TRY" },
+            "islemTarihi": "2026-03-05T00:01:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "ADOBE CREATIVE CLOUD",
+            "saticiKategoriKodu": "5734"
+          },
+          {
+            "islemNo": "KH2026030300005",
+            "islemTutari": { "ttr": "-34.99", "prBrm": "TRY" },
+            "islemTarihi": "2026-03-05T00:02:00+03:00",
+            "borcAlacak": "B",
+            "islemAciklamasi": "DUOLINGO PLUS",
+            "saticiKategoriKodu": "5818"
+          }
+        ]
+      }
+    }
+  }
+}

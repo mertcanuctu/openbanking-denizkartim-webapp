@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --safe-area-top: env(safe-area-inset-top, 0px);
+    --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-area-left: env(safe-area-inset-left, 0px);
+    --safe-area-right: env(safe-area-inset-right, 0px);
+    --bottom-nav-height: 5rem;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-navy text-text-primary;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+
+  /* Focus visible styles for keyboard navigation (accessibility) */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent rounded-lg;
+  }
+
+  /* Remove focus outline for mouse/touch users */
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Reduced motion: disable animations */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Selection color */
+  ::selection {
+    background: rgba(14, 165, 233, 0.3);
+    color: #F9FAFB;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    @apply bg-card backdrop-blur-xl rounded-2xl border border-card-border;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300;
+  }
+  .glass-card-hover:hover {
+    @apply bg-card-hover;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Gradient border (for AI cards) */
+  .gradient-border {
+    position: relative;
+    background-clip: padding-box;
+  }
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, #8b5cf6, #0ea5e9);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Safe area padding */
+  .safe-top {
+    padding-top: var(--safe-area-top);
+  }
+  .safe-bottom {
+    padding-bottom: var(--safe-area-bottom);
+  }
+
+  /* Bottom nav spacer */
+  .pb-nav {
+    padding-bottom: calc(var(--bottom-nav-height) + var(--safe-area-bottom) + 0.5rem);
+  }
+
+  /* Active press effect */
+  .press-effect {
+    @apply transition-transform duration-100 active:scale-[0.97];
+  }
+
+  /* Touch target minimum size (accessibility) */
+  .touch-target {
+    @apply min-w-[44px] min-h-[44px];
+  }
+
+  /* Pull-to-refresh simulation */
+  .pull-refresh-indicator {
+    @apply fixed top-0 left-1/2 -translate-x-1/2 z-50 opacity-0 transition-all duration-300;
+  }
+  .pull-refresh-indicator.active {
+    @apply opacity-100 translate-y-2;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Animate in utility */
+  .animate-in {
+    animation: animateIn 0.3s ease-out forwards;
+  }
+
+  @keyframes animateIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
