@@ -22,8 +22,11 @@ interface BankConnectionProps {
   onManageConsents: () => void;
 }
 
+const defaultConfig = { color: "#6B7280", letter: "?", gradient: { from: "#6B7280", to: "#374151" } };
+
 export function BankConnection({ bank, onManageConsents }: BankConnectionProps) {
   const [showDisconnectConfirm, setShowDisconnectConfirm] = useState(false);
+  const [logoError, setLogoError] = useState(false);
 
   const connectedDate = formatDate(bank.rizaOlusTrh);
   const expiryDate = formatDate(bank.erisimIzniSonTrh);
@@ -36,7 +39,8 @@ export function BankConnection({ bank, onManageConsents }: BankConnectionProps) 
   const daysUntilExpiry = Math.ceil((expiryMs - nowMs) / (1000 * 60 * 60 * 24));
   const isExpiringSoon = daysUntilExpiry <= 30 && daysUntilExpiry > 0;
 
-  const config = BANK_CONFIG[bank.hhsKod] || { color: "#6B7280", letter: "?", gradient: { from: "#6B7280", to: "#374151" } };
+  const config = BANK_CONFIG[bank.hhsKod] || defaultConfig;
+  const showLogo = config.logoUrl && !logoError;
 
   return (
     <motion.div
@@ -47,12 +51,21 @@ export function BankConnection({ bank, onManageConsents }: BankConnectionProps) 
       {/* Bank header */}
       <div className="p-5 pb-4">
         <div className="flex items-center gap-3 mb-4">
-          {/* Bank logo placeholder */}
+          {/* Bank logo */}
           <div
-            className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg"
+            className="w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg overflow-hidden"
             style={{ background: `linear-gradient(135deg, ${config.gradient.from}, ${config.gradient.to})` }}
           >
-            <span className="text-white font-bold text-lg">{config.letter}</span>
+            {showLogo ? (
+              <img
+                src={config.logoUrl}
+                alt=""
+                className="w-full h-full object-contain"
+                onError={() => setLogoError(true)}
+              />
+            ) : (
+              <span className="text-white font-bold text-lg">{config.letter}</span>
+            )}
           </div>
 
           <div className="flex-1">

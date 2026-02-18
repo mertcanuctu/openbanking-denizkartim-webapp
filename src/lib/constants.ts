@@ -63,11 +63,35 @@ export const BANK_CODE = "0046"; // HHS Kodu
 export const YOS_NAME = "Denizbank - Denizkartım";
 export const YOS_CODE = "0134"; // YÖS Kodu
 
+// Local bank logos (SVG under public/images/bank-logos/)
+const BANK_LOGO_BASE = "/images/bank-logos";
+
 // Bank visual config for profile/connections
-export const BANK_CONFIG: Record<string, { color: string; letter: string; gradient: { from: string; to: string } }> = {
-  "0046": { color: "#DC2626", letter: "A", gradient: { from: "#DC2626", to: "#991B1B" } },  // Akbank
-  "0134": { color: "#003DA6", letter: "D", gradient: { from: "#003DA6", to: "#001A4D" } },  // Denizbank
-  "0062": { color: "#00854A", letter: "G", gradient: { from: "#00854A", to: "#003D22" } },  // Garanti BBVA
+export const BANK_CONFIG: Record<
+  string,
+  { color: string; letter: string; gradient: { from: string; to: string }; logoUrl?: string }
+> = {
+  "0010": { color: "#E21A23", letter: "Z", gradient: { from: "#E21A23", to: "#991B1B" }, logoUrl: `${BANK_LOGO_BASE}/ziraat.svg` },
+  "0012": { color: "#0066B3", letter: "H", gradient: { from: "#0066B3", to: "#004D80" }, logoUrl: `${BANK_LOGO_BASE}/halkbank.svg` },
+  "0015": { color: "#FFD100", letter: "V", gradient: { from: "#FFD100", to: "#B38600" }, logoUrl: `${BANK_LOGO_BASE}/vakifbank.svg` },
+  "0046": { color: "#DC2626", letter: "A", gradient: { from: "#DC2626", to: "#991B1B" }, logoUrl: `${BANK_LOGO_BASE}/akbank.svg` },
+  "0062": { color: "#00854A", letter: "G", gradient: { from: "#00854A", to: "#003D22" }, logoUrl: `${BANK_LOGO_BASE}/garanti.svg` },
+  "0064": { color: "#003DA6", letter: "İ", gradient: { from: "#003DA6", to: "#002066" }, logoUrl: `${BANK_LOGO_BASE}/isbank.svg` },
+  "0067": { color: "#00205B", letter: "Y", gradient: { from: "#00205B", to: "#001233" }, logoUrl: `${BANK_LOGO_BASE}/yapikredi.svg` },
+  "0111": { color: "#5C2D91", letter: "Q", gradient: { from: "#5C2D91", to: "#3D1E60" }, logoUrl: `${BANK_LOGO_BASE}/qnb.svg` },
+  "0134": { color: "#003DA6", letter: "D", gradient: { from: "#003DA6", to: "#001A4D" }, logoUrl: `${BANK_LOGO_BASE}/denizbank.svg` },
+};
+
+// Map "Add Bank" grid id to BKM HHS code for shared logo/config
+export const BANK_ID_TO_HHS: Record<string, string> = {
+  garanti: "0062",
+  isbank: "0064",
+  yapi_kredi: "0067",
+  ziraat: "0010",
+  halkbank: "0012",
+  vakifbank: "0015",
+  qnb: "0111",
+  denizbank: "0134",
 };
 
 // Navigation routes
@@ -78,6 +102,7 @@ export const ROUTES = {
   analizler: "/analizler",
   odemeler: "/odemeler",
   profil: "/profil",
+  kampanyalar: "/kampanyalar",
 } as const;
 
 // Navigation items for BottomNav

@@ -19,6 +19,7 @@ import {
   Smartphone,
   CheckCircle2,
   X,
+  ArrowLeft,
   ArrowRight,
   Loader2,
 } from "lucide-react";
@@ -28,7 +29,7 @@ import { ConsentManager } from "@/components/profile/ConsentManager";
 import { Badge } from "@/components/shared/Badge";
 import { formatDate, cn } from "@/lib/utils";
 import { bankalar, hesaplar, kartlar } from "@/lib/data";
-import { APP_NAME } from "@/lib/constants";
+import { APP_NAME, BANK_CONFIG, BANK_ID_TO_HHS } from "@/lib/constants";
 import type { Meta } from "@/lib/types";
 
 // Bank list for "Add Bank" flow
@@ -50,6 +51,13 @@ export default function ProfilPage() {
   const [showAddBank, setShowAddBank] = useState(false);
   const [addBankStep, setAddBankStep] = useState<AddBankStep>("select");
   const [selectedBank, setSelectedBank] = useState<string | null>(null);
+  const [addBankLogoErrors, setAddBankLogoErrors] = useState<Set<string>>(() => new Set());
+  const [selectedBankLogoError, setSelectedBankLogoError] = useState(false);
+
+  // Reset selected-bank logo error when selection changes
+  useEffect(() => {
+    setSelectedBankLogoError(false);
+  }, [selectedBank]);
 
   // Lock body scroll when any modal is open
   const isModalOpen = !!consentBank || showAddBank;
@@ -413,7 +421,7 @@ export default function ProfilPage() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={handleAddBankClose}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60]"
             />
 
             {/* Bottom sheet */}
@@ -422,16 +430,16 @@ export default function ProfilPage() {
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed bottom-0 left-0 right-0 z-50 max-w-[430px] mx-auto"
+              className="fixed bottom-0 left-0 right-0 z-[60] max-w-[430px] mx-auto"
             >
               <div className="bg-surface rounded-t-3xl border-t border-x border-card-border max-h-[85vh] flex flex-col">
                 {/* Handle */}
-                <div className="flex justify-center pt-3 pb-1">
+                <div className="flex justify-center pt-3 pb-1 flex-shrink-0">
                   <div className="w-10 h-1 rounded-full bg-card-border" />
                 </div>
 
                 {/* Header */}
-                <div className="flex items-center justify-between px-5 py-3 border-b border-card-border">
+                <div className="flex items-center justify-between px-5 py-3 border-b border-card-border flex-shrink-0">
                   <h2 className="text-base font-semibold text-text-primary">
                     {addBankStep === "select" && "Banka Seçin"}
                     {addBankStep === "permissions" && "Erişim İzinleri"}
@@ -447,7 +455,7 @@ export default function ProfilPage() {
                 </div>
 
                 {/* Step content */}
-                <div className="flex-1 overflow-y-auto px-5 py-4">
+                <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-5 py-4">
                   <AnimatePresence mode="wait">
                     {/* STEP: Bank Selection */}
                     {addBankStep === "select" && (
@@ -458,28 +466,43 @@ export default function ProfilPage() {
                         exit={{ opacity: 0, x: -20 }}
                         className="grid grid-cols-2 gap-3"
                       >
-                        {availableBanks.map((bank) => (
-                          <button
-                            key={bank.id}
-                            onClick={() => handleSelectBank(bank.id)}
-                            className="flex items-center gap-3 p-4 rounded-2xl bg-surface-light/30 border border-card-border hover:border-accent/30 active:scale-[0.97] transition-all"
-                          >
-                            <div
-                              className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                              style={{ backgroundColor: bank.color + "20" }}
+                        {availableBanks.map((bank) => {
+                          const hhsKod = BANK_ID_TO_HHS[bank.id];
+                          const bankConfig = hhsKod ? BANK_CONFIG[hhsKod] : undefined;
+                          const logoUrl = bankConfig?.logoUrl;
+                          const showLogo = logoUrl && !addBankLogoErrors.has(bank.id);
+                          return (
+                            <button
+                              key={bank.id}
+                              onClick={() => handleSelectBank(bank.id)}
+                              className="flex items-center gap-3 p-4 rounded-2xl bg-surface-light/30 border border-card-border hover:border-accent/30 active:scale-[0.97] transition-all"
                             >
-                              <span
-                                className="font-bold text-sm"
-                                style={{ color: bank.color }}
+                              <div
+                                className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden"
+                                style={{ backgroundColor: bank.color + "20" }}
                               >
-                                {bank.letter}
-                              </span>
-                            </div>
-                            <p className="text-xs text-text-primary font-medium text-left leading-tight">
-                              {bank.name}
-                            </p>
-                          </button>
-                        ))}
+                                {showLogo ? (
+                                  <img
+                                    src={logoUrl}
+                                    alt=""
+                                    className="w-full h-full object-contain"
+                                    onError={() => setAddBankLogoErrors((prev) => new Set(prev).add(bank.id))}
+                                  />
+                                ) : (
+                                  <span
+                                    className="font-bold text-sm"
+                                    style={{ color: bank.color }}
+                                  >
+                                    {bank.letter}
+                                  </span>
+                                )}
+                              </div>
+                              <p className="text-xs text-text-primary font-medium text-left leading-tight">
+                                {bank.name}
+                              </p>
+                            </button>
+                          );
+                        })}
                       </motion.div>
                     )}
 
@@ -491,20 +514,48 @@ export default function ProfilPage() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
                       >
+                        <button
+                          onClick={() => {
+                            setAddBankStep("select");
+                            setSelectedBank(null);
+                          }}
+                          className="flex items-center gap-1.5 mb-4 text-xs text-text-muted hover:text-accent active:scale-95 transition-all"
+                        >
+                          <ArrowLeft size={14} />
+                          <span>Banka Seçimine Dön</span>
+                        </button>
+
                         <div className="flex items-center gap-3 mb-5">
-                          <div
-                            className="w-12 h-12 rounded-2xl flex items-center justify-center"
-                            style={{
-                              backgroundColor: selectedBankData.color + "20",
-                            }}
-                          >
-                            <span
-                              className="font-bold text-lg"
-                              style={{ color: selectedBankData.color }}
-                            >
-                              {selectedBankData.letter}
-                            </span>
-                          </div>
+                          {(() => {
+                            const hhsKod = BANK_ID_TO_HHS[selectedBankData.id];
+                            const bankConfig = hhsKod ? BANK_CONFIG[hhsKod] : undefined;
+                            const logoUrl = bankConfig?.logoUrl;
+                            const showLogo = logoUrl && !selectedBankLogoError;
+                            return (
+                              <div
+                                className="w-12 h-12 rounded-2xl flex items-center justify-center overflow-hidden"
+                                style={{
+                                  backgroundColor: selectedBankData.color + "20",
+                                }}
+                              >
+                                {showLogo ? (
+                                  <img
+                                    src={logoUrl}
+                                    alt=""
+                                    className="w-full h-full object-contain"
+                                    onError={() => setSelectedBankLogoError(true)}
+                                  />
+                                ) : (
+                                  <span
+                                    className="font-bold text-lg"
+                                    style={{ color: selectedBankData.color }}
+                                  >
+                                    {selectedBankData.letter}
+                                  </span>
+                                )}
+                              </div>
+                            );
+                          })()}
                           <div>
                             <h3 className="text-sm font-semibold text-text-primary">
                               {selectedBankData.name}

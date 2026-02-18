@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Wallet, PlusCircle, BarChart3, CalendarRange } from "lucide-react";
+import { Wallet, PlusCircle, BarChart3, Tag } from "lucide-react";
 
 const actions = [
   {
@@ -27,11 +27,11 @@ const actions = [
     bg: "bg-purple-400/10",
   },
   {
-    label: "Taksitlerim",
-    icon: CalendarRange,
-    href: "/kartlarim",
-    color: "text-warning",
-    bg: "bg-warning/10",
+    label: "Kampanyalar",
+    icon: Tag,
+    href: "/kampanyalar",
+    color: "text-pink-400",
+    bg: "bg-pink-400/10",
   },
 ];
 

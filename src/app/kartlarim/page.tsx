@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import {
@@ -12,6 +13,7 @@ import {
   Banknote,
   DollarSign,
   AlertTriangle,
+  Trophy,
 } from "lucide-react";
 import { TopBar } from "@/components/layout/TopBar";
 import { CardVisual } from "@/components/cards/CardVisual";
@@ -28,13 +30,15 @@ import {
   formatDateShort,
 } from "@/lib/utils";
 import type { Kart } from "@/lib/types";
+import { GorevlerPanel } from "@/components/cards/GorevlerPanel";
 
-type FilterTab = "tumu" | "kredi" | "banka";
+type FilterTab = "tumu" | "kredi" | "banka" | "gorevler";
 
-const filterTabs: { id: FilterTab; label: string }[] = [
+const filterTabs: { id: FilterTab; label: string; icon?: React.ElementType }[] = [
   { id: "tumu", label: "Tümü" },
   { id: "kredi", label: "Kredi Kartları" },
   { id: "banka", label: "Banka Kartları" },
+  { id: "gorevler", label: "Görevler", icon: Trophy },
 ];
 
 const containerVariants = {
@@ -282,7 +286,24 @@ function AccountItem({
 
 // ─── Main Page ────────────────────────────────────────
 export default function KartlarimPage() {
+  return (
+    <Suspense>
+      <KartlarimContent />
+    </Suspense>
+  );
+}
+
+function KartlarimContent() {
+  const searchParams = useSearchParams();
   const [activeFilter, setActiveFilter] = useState<FilterTab>("tumu");
+
+  // Handle ?tab=gorevler URL param
+  useEffect(() => {
+    const tab = searchParams.get("tab");
+    if (tab === "gorevler") {
+      setActiveFilter("gorevler");
+    }
+  }, [searchParams]);
 
   // Build card groups: physical cards with their virtual children
   const cardGroups = useMemo(() => {
@@ -337,88 +358,120 @@ export default function KartlarimPage() {
         </motion.div>
 
         {/* Filter tabs */}
-        <div className="flex gap-2 mb-5">
-          {filterTabs.map((tab) => (
-            <motion.button
-              key={tab.id}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setActiveFilter(tab.id)}
-              className={`px-4 py-2 rounded-xl text-xs font-medium transition-all ${
-                activeFilter === tab.id
-                  ? "bg-accent text-white shadow-glow-sm"
-                  : "bg-card border border-card-border text-text-secondary"
-              }`}
-            >
-              {tab.label}
-            </motion.button>
-          ))}
+        <div className="flex gap-2 mb-5 overflow-x-auto no-scrollbar pb-1">
+          {filterTabs.map((tab) => {
+            const TabIcon = tab.icon;
+            return (
+              <motion.button
+                key={tab.id}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setActiveFilter(tab.id)}
+                className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-medium transition-all whitespace-nowrap ${
+                  activeFilter === tab.id
+                    ? "bg-accent text-white shadow-glow-sm"
+                    : "bg-card border border-card-border text-text-secondary"
+                }`}
+              >
+                {TabIcon && <TabIcon size={12} />}
+                {tab.label}
+              </motion.button>
+            );
+          })}
         </div>
 
-        {/* Card list */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="space-y-3"
-        >
-          <AnimatePresence mode="wait">
-            {filteredGroups.map((group) => (
+        <AnimatePresence mode="wait">
+          {activeFilter === "gorevler" ? (
+            <motion.div
+              key="gorevler"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
+              <GorevlerPanel
+                highlightGorevId={
+                  searchParams.get("tab") === "gorevler"
+                    ? "arkadasini-davet-et"
+                    : undefined
+                }
+              />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="kartlar"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
+              {/* Card list */}
               <motion.div
-                key={group.parent.kartRef}
-                variants={itemVariants}
-                layout
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                className="space-y-3"
               >
-                <CardListItem
-                  kart={group.parent}
-                  virtualCards={group.children}
-                />
+                <AnimatePresence mode="wait">
+                  {filteredGroups.map((group) => (
+                    <motion.div
+                      key={group.parent.kartRef}
+                      variants={itemVariants}
+                      layout
+                    >
+                      <CardListItem
+                        kart={group.parent}
+                        virtualCards={group.children}
+                      />
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
               </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
 
-        {/* ─── Hesaplarım Section ──────────────────────── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          className="mt-8 mb-6"
-        >
-          <div className="flex items-center gap-2 mb-4">
-            <Landmark size={18} className="text-accent" />
-            <h2 className="text-lg font-bold text-text-primary">Hesaplarım</h2>
-          </div>
+              {/* ─── Hesaplarım Section ──────────────────────── */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="mt-8 mb-6"
+              >
+                <div className="flex items-center gap-2 mb-4">
+                  <Landmark size={18} className="text-accent" />
+                  <h2 className="text-lg font-bold text-text-primary">Hesaplarım</h2>
+                </div>
 
-          <div className="space-y-2.5">
-            {accounts.map((account) => (
-              <AccountItem
-                key={account.hspRef}
-                hspUrunAdi={account.hspUrunAdi}
-                kisaAd={account.kisaAd}
-                bakiye={account.bakiye}
-                prBrm={account.prBrm}
-                hspTip={account.hspTip}
-              />
-            ))}
-          </div>
+                <div className="space-y-2.5">
+                  {accounts.map((account) => (
+                    <AccountItem
+                      key={account.hspRef}
+                      hspUrunAdi={account.hspUrunAdi}
+                      kisaAd={account.kisaAd}
+                      bakiye={account.bakiye}
+                      prBrm={account.prBrm}
+                      hspTip={account.hspTip}
+                    />
+                  ))}
+                </div>
 
-          {/* Total balance summary */}
-          <div className="mt-3 p-4 rounded-xl bg-card border border-card-border">
-            <div className="flex justify-between items-center">
-              <span className="text-text-muted text-xs">
-                Toplam TRY Bakiye
-              </span>
-              <AmountDisplay
-                amount={accounts
-                  .filter((a) => a.prBrm === "TRY")
-                  .reduce((sum, a) => sum + a.bakiye, 0)}
-                size="sm"
-                colorize
-                className="font-bold"
-              />
-            </div>
-          </div>
-        </motion.div>
+                {/* Total balance summary */}
+                <div className="mt-3 p-4 rounded-xl bg-card border border-card-border">
+                  <div className="flex justify-between items-center">
+                    <span className="text-text-muted text-xs">
+                      Toplam TRY Bakiye
+                    </span>
+                    <AmountDisplay
+                      amount={accounts
+                        .filter((a) => a.prBrm === "TRY")
+                        .reduce((sum, a) => sum + a.bakiye, 0)}
+                      size="sm"
+                      colorize
+                      className="font-bold"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );

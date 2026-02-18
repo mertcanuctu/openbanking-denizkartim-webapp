@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-mo
 import { useRouter } from "next/navigation";
 import {
   ChevronLeft,
+  ChevronRight,
   CreditCard,
   Receipt,
   CalendarClock,
@@ -13,7 +14,9 @@ import {
   Wallet,
   Shield,
   TrendingDown,
+  Tag,
 } from "lucide-react";
+import Link from "next/link";
 import { TopBar } from "@/components/layout/TopBar";
 import { CardVisual } from "@/components/cards/CardVisual";
 import { TransactionList } from "@/components/cards/TransactionList";
@@ -37,6 +40,7 @@ import {
   cn,
 } from "@/lib/utils";
 import { TURKISH_MONTHS } from "@/lib/constants";
+import { getKampanyalarByHHS } from "@/lib/campaignData";
 import type { TransactionFilters } from "@/lib/types";
 
 type TabId = "hareketler" | "taksitler" | "ekstre";
@@ -230,6 +234,43 @@ export default function KartDetayPage({
           </motion.div>
         )}
       </motion.div>
+
+      {/* Campaign banner */}
+      {(() => {
+        const kampanyalar = getKampanyalarByHHS(kart.hhsKod);
+        if (kampanyalar.length === 0) return null;
+        return (
+          <div className="px-5 mb-2">
+            <Link href="/kampanyalar">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25, duration: 0.4 }}
+                whileTap={{ scale: 0.98 }}
+                className="glass-card p-3.5 flex items-center justify-between press-effect group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-pink-400/10 flex items-center justify-center">
+                    <Tag size={16} className="text-pink-400" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-medium text-text-primary">
+                      Bu Karta Uygun Kampanyalar
+                    </p>
+                    <p className="text-[10px] text-text-muted">
+                      {kampanyalar.length} aktif kampanya
+                    </p>
+                  </div>
+                </div>
+                <ChevronRight
+                  size={16}
+                  className="text-text-muted group-hover:text-accent transition-colors"
+                />
+              </motion.div>
+            </Link>
+          </div>
+        );
+      })()}
 
       {/* Sticky Tab bar */}
       {isCredit && (

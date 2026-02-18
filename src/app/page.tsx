@@ -8,6 +8,7 @@ import { UpcomingPayments } from "@/components/dashboard/UpcomingPayments";
 import { AiInsightCard } from "@/components/dashboard/AiInsightCard";
 import { QuickActions } from "@/components/dashboard/QuickActions";
 import { AccountTransactions } from "@/components/dashboard/AccountTransactions";
+import { CampaignBanner } from "@/components/dashboard/CampaignBanner";
 import { SalaryBadge } from "@/components/dashboard/SalaryBadge";
 import { useFinancialSummary } from "@/hooks/useFinancialSummary";
 import { useSubscriptions } from "@/hooks/useSubscriptions";
@@ -63,6 +64,11 @@ export default function DashboardPage() {
         {/* Card Carousel */}
         <motion.div variants={itemVariants}>
           <CardCarousel summary={summary} />
+        </motion.div>
+
+        {/* Görevler — Arkadaşını Davet Et */}
+        <motion.div variants={itemVariants}>
+          <CampaignBanner />
         </motion.div>
 
         {/* Upcoming Payments */}
