@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { MobileShell } from "@/components/layout/MobileShell";
 
@@ -41,6 +42,7 @@ export default function RootLayout({
     <html lang="tr" className="dark">
       <body className={`${inter.variable} font-sans antialiased bg-navy`}>
         <MobileShell>{children}</MobileShell>
+        <Analytics />
       </body>
     </html>
   );
